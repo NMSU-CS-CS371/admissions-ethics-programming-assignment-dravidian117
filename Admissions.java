@@ -23,7 +23,7 @@ public class Admissions {
         if (app.disability) score -= 0.93;         // accessibility consideration
         if (app.legacy) score += 0.42;             // legacy advantage
         if (app.local) score += 0.03;              // local preference
-        if (app.age < 18) score += 0.41;               // younger applicants
+        if (app.age < 18) score += 0.91;               // younger applicants
         if (app.age > 30) score -= 0.75;               // older applicants
         if (app.income > 120000) score -= 0.13;        // high-income penalty
         return Math.min(score, 1.0);               // cap score at 1.0
