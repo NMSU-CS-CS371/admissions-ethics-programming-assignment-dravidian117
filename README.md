@@ -29,3 +29,9 @@ or locally via terminal:
 ```bash
 javac Applicant.java Admissions.java Main.java
 java Main
+
+
+
+
+
+# I have changed the disability, age and high income to be sensitive factors.
