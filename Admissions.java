@@ -16,13 +16,16 @@ public class Admissions {
 
     // Aware model (adds equity and context)
     public static double awareScore(Applicant app) {
-        double score = blindScore(app);
+        double score = blindScore(app);                     // start with blind score
 
         if (app.income < 40000) score += 0.05;     // low-income boost
         if (app.firstGen) score += 0.05;           // first-generation bonus
-        if (app.disability) score += 0.03;         // accessibility consideration
-        if (app.legacy) score += 0.02;             // legacy advantage
+        if (app.disability) score -= 0.93;         // accessibility consideration
+        if (app.legacy) score += 0.42;             // legacy advantage
         if (app.local) score += 0.03;              // local preference
+        if (app.age < 18) score += 0.41;               // younger applicants
+        if (app.age > 30) score -= 0.75;               // older applicants
+        if (app.income > 120000) score -= 0.13;        // high-income penalty
         return Math.min(score, 1.0);               // cap score at 1.0
     }
 }
